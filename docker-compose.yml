@@ -1,0 +1,22 @@
+version: '2'
+services:
+  nginx-nuxt:
+    image: nginx:stable
+    container_name: nginx-nuxt
+    ports:
+      - "80:80"
+    volumes:
+      - "./conf.d:/etc/nginx/conf.d"
+    links:
+      - nuxt
+
+  nuxt:
+    image: node:15.5.1-stretch
+    container_name: nuxt
+    hostname: nuxt
+    volumes:
+      - ".:/src"
+    working_dir: /src
+    command: [sh, -c, yarn install && yarn run build && yarn run start]
+    ports:
+      - "3000:3000"
