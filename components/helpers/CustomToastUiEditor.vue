@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <editor v-model="editorText" />
+    <editor height="1000px" v-model="editorText" />
   </client-only>
 </template>
 
