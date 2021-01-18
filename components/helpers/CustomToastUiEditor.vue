@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <editor height="1000px" v-model="editorText" />
+    <editor v-model="editorText" height="1000px" />
   </client-only>
 </template>
 
@@ -14,13 +14,14 @@ export default Vue.extend({
   components: {
     Editor: () => {
       if (process.client) {
-        return import ('@toast-ui/vue-editor/src/Editor.vue')
+        return import('@toast-ui/vue-editor/src/Editor.vue')
       }
     }
   },
   data() {
     return {
-      editorText: ''
+      editorText: '',
+      sample: ''
     }
   }
 })
