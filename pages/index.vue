@@ -88,7 +88,7 @@ import VuetifyLogo from '~/components/VuetifyLogo.vue'
 export default Vue.extend({
   components: {
     Logo,
-    VuetifyLogo,
+    VuetifyLogo
   }
 })
 </script>
