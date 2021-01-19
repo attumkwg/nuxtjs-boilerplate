@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev-debug": "node --inspect-brk=9229 node_modules/@nuxt/typescript-runtime/bin/nuxt-ts",
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",

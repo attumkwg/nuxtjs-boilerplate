@@ -72,6 +72,7 @@
           </a>
         </v-card-text>
         <v-card-actions>
+          <v-btn color="primary" @click="clickButton()" v-text="`Test`" />
           <v-spacer />
           <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
         </v-card-actions>
@@ -89,6 +90,11 @@ export default Vue.extend({
   components: {
     Logo,
     VuetifyLogo
+  },
+  methods: {
+    clickButton(): void {
+      console.log('click')
+    }
   }
 })
 </script>
