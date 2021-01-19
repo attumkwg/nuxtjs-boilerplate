@@ -16,7 +16,7 @@ import Vue from 'vue'
 import 'tui-editor/dist/tui-editor.css'
 import 'tui-editor/dist/tui-editor-contents.css'
 import 'codemirror/lib/codemirror.css'
-import CustomEditorRepository from '~/repositories/helpers/CustomEditorRepository'
+import { addImageBlobHook } from '~/repositories/helpers/ImageRepository'
 
 type EditorType = {
   initialValue: string
@@ -44,7 +44,7 @@ export default Vue.extend({
       previewStyle: 'vertical',
       options: {
         hooks: {
-          addImageBlobHook: new CustomEditorRepository().addImageBlobHook.bind(this)
+          addImageBlobHook: addImageBlobHook.bind(this)
         }
       }
     }
