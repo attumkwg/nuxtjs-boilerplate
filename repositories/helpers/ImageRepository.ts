@@ -9,12 +9,12 @@ export const addImageBlobHook = (blob: Blob, callback: Function) => {
       'Content-Type': 'multipart/form-data'
     }
   }
-  Repository.post('', data, config)
+  Repository.post('/files/upload', data, config)
     .then(res => {
-      const uploadedImage: UploadedImage = res.data
+      const uploadedImage: UploadedImage = res.data.data
       callback(uploadedImage.url, '')
     })
-    .catch(() => {
-      alert('zannen')
+    .catch(err => {
+      alert(JSON.stringify(err))
     })
 }

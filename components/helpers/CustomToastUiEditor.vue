@@ -24,7 +24,9 @@ type EditorType = {
   initialEditType: string
   previewStyle: string
   options: {
-    hooks: {}
+    hooks: {
+      addImageBlobHook: (blob: Blob, callback: Function) => void
+    }
   }
 }
 
