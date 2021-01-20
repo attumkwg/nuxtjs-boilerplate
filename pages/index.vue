@@ -93,7 +93,7 @@ export default Vue.extend({
   },
   methods: {
     clickButton(): void {
-      console.log('click')
+      this.$alert('click!!!')
     }
   }
 })
