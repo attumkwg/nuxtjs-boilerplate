@@ -18,6 +18,10 @@ import 'tui-editor/dist/tui-editor-contents.css'
 import 'codemirror/lib/codemirror.css'
 import { addImageBlobHook } from '~/repositories/helpers/ImageRepository'
 
+if (process.client) {
+  require('@toast-ui/editor/dist/i18n/ja-jp.js')
+}
+
 type EditorType = {
   initialValue: string
   height: string
@@ -26,7 +30,9 @@ type EditorType = {
   options: {
     hooks: {
       addImageBlobHook: (blob: Blob, callback: Function) => void
-    }
+    },
+    language: string,
+    hideModeSwitch: boolean
   }
 }
 
@@ -41,13 +47,15 @@ export default Vue.extend({
   data(): EditorType {
     return {
       initialValue: '',
-      height: '1000px',
+      height: 'inherit',
       initialEditType: 'markdown',
       previewStyle: 'vertical',
       options: {
         hooks: {
           addImageBlobHook: addImageBlobHook.bind(this)
-        }
+        },
+        language: 'ja',
+        hideModeSwitch: false
       }
     }
   },
@@ -58,3 +66,11 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+::v-deep .tui-editor-defaultUI {
+  .te-switch-button {
+    width: 104px;
+  }
+}
+</style>

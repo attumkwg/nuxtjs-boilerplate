@@ -1,7 +1,11 @@
 <template>
   <v-dialog v-model="isActive" persistent max-width="30%">
     <v-card>
-      <v-card-text class="text--primary" style="padding-top:20px;" v-text="message" />
+      <v-card-text
+        class="text--primary"
+        style="padding-top: 20px"
+        v-text="message"
+      />
       <v-card-actions pt-0>
         <v-spacer />
         <v-btn color="primary" depressed @click.native="ok" v-text="`OK`" />
@@ -18,7 +22,7 @@ export default Vue.extend({
   props: {
     message: {
       type: String,
-      default: ""
+      default: ''
     },
     success: {
       type: Function as PropType<() => void>,
@@ -49,8 +53,8 @@ export default Vue.extend({
 
       // 即座にdomを削除するとtransitionする前に消えてしまうので、200ms待つ
       setTimeout(() => {
-      this.$el.parentNode?.removeChild(this.$el)
-      this.$destroy()
+        this.$el.parentNode?.removeChild(this.$el)
+        this.$destroy()
       }, 200)
     },
     ok(): void {
@@ -68,6 +72,6 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .v-dialog__content {
   pointer-events: initial;
-  background: rgba(100, 100, 100, .8);
+  background: rgba(100, 100, 100, 0.8);
 }
 </style>
