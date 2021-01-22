@@ -1,5 +1,6 @@
 import { accessorType } from '~/store'
 import { EnvironmentVariables } from '~/plugins/Environments'
+import { Sanitize } from '~/plugins/Prototypes'
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -7,6 +8,7 @@ declare module 'vue/types/vue' {
     $confirm(message: string): Promise<boolean>
     $alert(message: string): Promise<boolean>
     $environments: EnvironmentVariables
+    $sanitize: Sanitize
   }
 }
 

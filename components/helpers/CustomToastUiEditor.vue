@@ -18,8 +18,10 @@ import 'tui-editor/dist/tui-editor-contents.css'
 import 'codemirror/lib/codemirror.css'
 import { addImageBlobHook } from '~/repositories/helpers/ImageRepository'
 
+let chart: any
 if (process.client) {
   require('@toast-ui/editor/dist/i18n/ja-jp.js')
+  chart = require('@toast-ui/editor-plugin-chart')
 }
 
 type EditorType = {
@@ -33,6 +35,7 @@ type EditorType = {
     },
     language: string,
     hideModeSwitch: boolean
+    plugin: any[]
   }
 }
 
@@ -55,7 +58,10 @@ export default Vue.extend({
           addImageBlobHook: addImageBlobHook.bind(this)
         },
         language: 'ja',
-        hideModeSwitch: false
+        hideModeSwitch: false,
+        plugin: [
+          chart
+        ]
       }
     }
   },
