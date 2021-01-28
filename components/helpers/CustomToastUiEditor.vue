@@ -13,15 +13,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import '@toast-ui/editor/dist/toastui-editor.css'
 import 'tui-editor/dist/tui-editor.css'
 import 'tui-editor/dist/tui-editor-contents.css'
 import 'codemirror/lib/codemirror.css'
+import 'highlight.js/styles/github.css'
+import 'tui-color-picker/dist/tui-color-picker.css'
 import { addImageBlobHook } from '~/repositories/helpers/ImageRepository'
 
-let chart: any
+let plugins: any
 if (process.client) {
   require('@toast-ui/editor/dist/i18n/ja-jp.js')
-  chart = require('@toast-ui/editor-plugin-chart')
+  plugins = require('~/helpers/toast-ui/plugins').default
 }
 
 type EditorType = {
@@ -35,11 +38,12 @@ type EditorType = {
     },
     language: string,
     hideModeSwitch: boolean
-    plugin: any[]
+    plugins: any[]
   }
 }
 
 export default Vue.extend({
+  name: 'CustomToastUiEditor',
   components: {
     Editor: () => {
       if (process.client) {
@@ -59,9 +63,7 @@ export default Vue.extend({
         },
         language: 'ja',
         hideModeSwitch: false,
-        plugin: [
-          chart
-        ]
+        plugins
       }
     }
   },
