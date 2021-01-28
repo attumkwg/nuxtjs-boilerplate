@@ -27,6 +27,7 @@
     "core-js": "^3.8.3",
     "highlight.js": "^10.5.0",
     "nuxt": "^2.14.6",
+    "nuxt-compress": "^4.1.0",
     "nuxt-typed-vuex": "^0.1.22",
     "sanitize-html": "^2.3.0",
     "tui-editor": "^1.4.10"

@@ -13,11 +13,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import '@toast-ui/editor/dist/toastui-editor.css'
-import 'tui-editor/dist/tui-editor.css'
-import 'tui-editor/dist/tui-editor-contents.css'
 import 'codemirror/lib/codemirror.css'
 import 'highlight.js/styles/github.css'
+import '@toast-ui/editor/dist/toastui-editor.css'
+// import '~/assets/tui-editor.scss'
 import 'tui-color-picker/dist/tui-color-picker.css'
 import { addImageBlobHook } from '~/repositories/helpers/ImageRepository'
 
@@ -79,6 +78,18 @@ export default Vue.extend({
 ::v-deep .tui-editor-defaultUI {
   .te-switch-button {
     width: 104px;
+  }
+}
+
+::v-deep .tui-editor-contents {
+  pre {
+    code {
+      padding: 0;
+      color: inherit;
+      white-space: pre-wrap;
+      background-color: transparent;
+      font-size: 100%;
+    }
   }
 }
 </style>
