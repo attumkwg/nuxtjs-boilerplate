@@ -6,6 +6,7 @@
     <h1 v-else>
       {{ otherError }}
     </h1>
+    {{ JSON.stringify(error) }}
     <NuxtLink to="/"> Home page </NuxtLink>
   </v-app>
 </template>
@@ -23,6 +24,8 @@ export default Vue.extend({
   },
   data() {
     return {
+      pageNotFound: '404 Not Found',
+      otherError: 'An error occurred'
     }
   },
   head() {

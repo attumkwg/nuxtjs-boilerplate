@@ -72,7 +72,7 @@
           </a>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" @click="clickButton()" v-text="`Test`" />
+          <v-btn color="primary" @click="clickButton" v-text="`Test`" />
           <v-spacer />
           <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
         </v-card-actions>
@@ -92,8 +92,9 @@ export default Vue.extend({
     VuetifyLogo
   },
   methods: {
-    clickButton(): void {
-      this.$alert('click!!!')
+    async clickButton(): Promise<void> {
+      const flg = await this.$confirm('first check')
+      if (flg) this.$alert('click!!!')
     }
   }
 })

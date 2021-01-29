@@ -6,10 +6,10 @@
         style="padding-top: 20px"
         v-text="message"
       />
-      <v-card-actions pt-0>
+      <v-card-actions>
         <v-spacer />
-        <v-btn color="primary" depressed @click.native="ok" v-text="`OK`" />
-        <v-btn outline @click.native="cancel" v-text="`Cancel`" />
+        <v-btn color="primary" depressed @click="ok" v-text="`OK`" />
+        <v-btn outlined @click="cancel" v-text="`Cancel`" />
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -39,11 +39,9 @@ export default Vue.extend({
     }
   },
   created() {
+    this.$mount();
     // eslint-disable-next-line nuxt/no-globals-in-created
-    const el = document.createElement('div')
-    // eslint-disable-next-line nuxt/no-globals-in-created
-    document.getElementsByTagName('body')[0].appendChild(el)
-    this.$mount(el)
+    document.body.appendChild(this.$el);
 
     this.isActive = true
   },
