@@ -1,6 +1,7 @@
 import Vue, { VueConstructor } from 'vue'
 import Confirm from '~/components/helpers/utils/Confirm.vue'
 import Alert from '~/components/helpers/utils/Alert.vue'
+import vuetify from '~/plugins/Vuetify'
 
 export default class {
   static install(VueConstructor: VueConstructor) {
@@ -13,6 +14,7 @@ export default class {
               try {
                 // eslint-disable-next-line no-new
                 new VM({
+                  vuetify,
                   propsData: {
                     message,
                     success: () => resolve(true),
@@ -31,6 +33,7 @@ export default class {
               try {
                 // eslint-disable-next-line no-new
                 new VM({
+                  vuetify,
                   propsData: {
                     message,
                     success: () => resolve(true)
